@@ -9,5 +9,10 @@
 import Foundation
 
 class BaseResponse {
+    var status : String?
+    var statusCode : Int?
+    var errorMessage: String?
+
     
+    required init(data:Data) { }
 }

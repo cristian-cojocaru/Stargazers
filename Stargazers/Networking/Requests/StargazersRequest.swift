@@ -1,7 +1,7 @@
 //
 //  StargazersRequest.swift
 //  Stargazers
-//
+//  
 //  Created by Cristian Cojocaru on 14/03/2020.
 //  Copyright © 2020 Cristian Cojocaru. All rights reserved.
 //
@@ -26,18 +26,26 @@ class StargazerRequest: RequestProtocol {
         return "repos/\(userName)/\(repositoryName)/stargazers"
     }
     
-    func dictionaryForm() -> [String : Any] {
-        return [:]
+    func dictionaryForm() -> [String : Any]? {
+        return nil
     }
     
     func requestMethodType() -> RequestMethodType {
         return RequestMethodType.GET
     }
-    
-    
 }
 
 
 class StargazerResponse: BaseResponse {
     
+    var stargazers = [Stargazer]()
+    
+    required init(data: Data) {
+        super.init(data: data)
+        guard let stargazers = data.toObject(of: [Stargazer].self) else {
+            return
+        }
+        self.stargazers = stargazers
+    }
+
 }

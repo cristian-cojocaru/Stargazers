@@ -12,19 +12,23 @@ class NetworkManager {
     
     let baseURL = "https://api.github.com/"
     
-    func performRequest<ResponseType>(request: RequestProtocol, withReponse: @escaping (Result<ResponseType, RequestError>)->()) {
+    func performRequest(request: RequestProtocol, withReponse: @escaping (Result<BaseResponse, RequestError>)->()) {
         guard let requestURL = URL(string: baseURL + request.requestPath()) else {
             withReponse(.failure(.domainError))
             return
         }
         
-        
         var requestObject = URLRequest(url: requestURL)
-        requestObject.httpBody = request.dictionaryForm().toData()
         requestObject.httpMethod = request.requestMethodType().rawValue
+        if let dict = request.dictionaryForm(),
+            let body = dict.toData() {
+               requestObject.httpBody = body
+        }
+        
         
         let task = URLSession.shared.dataTask(with: requestObject) { (data, responseURL, error) in
-            guard let _ = error else {
+            
+            guard error == nil else {
                 withReponse(.failure(.domainError))
                 return
             }
@@ -35,12 +39,16 @@ class NetworkManager {
                 return
             }
             
-            guard let response = httpResponse as? ResponseType else {
-                withReponse(.failure(.decodingError))
+            
+            guard let data = data else {
+                withReponse(.failure(.invalidResponse))
                 return
             }
             
-            withReponse(.success(response))
+            let baseResponse =  request.responseClass().init(data: data)
+            baseResponse.statusCode = httpResponse.statusCode
+            withReponse(.success(baseResponse))
+            
         }
         
         task.resume()

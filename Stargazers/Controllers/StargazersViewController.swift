@@ -14,9 +14,15 @@ class StargazersViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let request = StargazerRequest(userName: "cristian-cojocaru", repositoryName: "QuizApp-Android")
-//        NetworkManager().performRequest(request: request) { (result) in
-//
-//        }
+        NetworkManager().performRequest(request: request) { (result) in
+            switch result {
+            case .failure(.domainError), .failure(.decodingError), .failure(.invalidResponse), .failure(.networkError) :
+                fatalError("not working")
+            case .success(let stargazers) :
+                print(stargazers)
+         
+            }
+        }
     }
 
 

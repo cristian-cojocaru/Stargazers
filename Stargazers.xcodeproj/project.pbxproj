@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6454D3BE241E543600BDECFB /* Stargazer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454D3BD241E543600BDECFB /* Stargazer.swift */; };
+		6454D3C0241E55E700BDECFB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454D3BF241E55E700BDECFB /* Data.swift */; };
 		645A4734241D570300214589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A4733241D570300214589 /* AppDelegate.swift */; };
 		645A4736241D570300214589 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A4735241D570300214589 /* SceneDelegate.swift */; };
 		645A4738241D570300214589 /* StargazersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A4737241D570300214589 /* StargazersViewController.swift */; };
@@ -17,7 +19,7 @@
 		645A4756241D570600214589 /* StargazersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A4755241D570600214589 /* StargazersUITests.swift */; };
 		645A4768241D597C00214589 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A4767241D597C00214589 /* NetworkManager.swift */; };
 		645A476A241D59B300214589 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A4769241D59B300214589 /* RequestProtocol.swift */; };
-		645A476C241D59CC00214589 /* BaseReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A476B241D59CC00214589 /* BaseReponse.swift */; };
+		645A476C241D59CC00214589 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A476B241D59CC00214589 /* BaseResponse.swift */; };
 		645A476E241D5CEB00214589 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A476D241D5CEB00214589 /* RequestError.swift */; };
 		645A4770241D7C0200214589 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A476F241D7C0200214589 /* Dictionary.swift */; };
 		64C96A43241D7ECF000C09A3 /* StargazersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C96A42241D7ECF000C09A3 /* StargazersRequest.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6454D3BD241E543600BDECFB /* Stargazer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stargazer.swift; sourceTree = "<group>"; };
+		6454D3BF241E55E700BDECFB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		645A4730241D570300214589 /* Stargazers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stargazers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645A4733241D570300214589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		645A4735241D570300214589 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +61,7 @@
 		645A4757241D570600214589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		645A4767241D597C00214589 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		645A4769241D59B300214589 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
-		645A476B241D59CC00214589 /* BaseReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReponse.swift; sourceTree = "<group>"; };
+		645A476B241D59CC00214589 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		645A476D241D5CEB00214589 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		645A476F241D7C0200214589 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		64C96A42241D7ECF000C09A3 /* StargazersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StargazersRequest.swift; sourceTree = "<group>"; };
@@ -150,7 +154,7 @@
 				64C96A41241D7EBB000C09A3 /* Requests */,
 				645A4767241D597C00214589 /* NetworkManager.swift */,
 				645A4769241D59B300214589 /* RequestProtocol.swift */,
-				645A476B241D59CC00214589 /* BaseReponse.swift */,
+				645A476B241D59CC00214589 /* BaseResponse.swift */,
 				645A476D241D5CEB00214589 /* RequestError.swift */,
 			);
 			path = Networking;
@@ -166,6 +170,7 @@
 		645A4765241D583100214589 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6454D3BD241E543600BDECFB /* Stargazer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				645A476F241D7C0200214589 /* Dictionary.swift */,
+				6454D3BF241E55E700BDECFB /* Data.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,11 +334,13 @@
 				645A4768241D597C00214589 /* NetworkManager.swift in Sources */,
 				64C96A43241D7ECF000C09A3 /* StargazersRequest.swift in Sources */,
 				645A4770241D7C0200214589 /* Dictionary.swift in Sources */,
+				6454D3BE241E543600BDECFB /* Stargazer.swift in Sources */,
+				6454D3C0241E55E700BDECFB /* Data.swift in Sources */,
 				645A4738241D570300214589 /* StargazersViewController.swift in Sources */,
 				645A4734241D570300214589 /* AppDelegate.swift in Sources */,
 				645A4736241D570300214589 /* SceneDelegate.swift in Sources */,
 				645A476A241D59B300214589 /* RequestProtocol.swift in Sources */,
-				645A476C241D59CC00214589 /* BaseReponse.swift in Sources */,
+				645A476C241D59CC00214589 /* BaseResponse.swift in Sources */,
 				645A476E241D5CEB00214589 /* RequestError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

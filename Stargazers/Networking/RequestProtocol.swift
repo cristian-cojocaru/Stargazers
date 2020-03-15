@@ -20,6 +20,7 @@ protocol RequestProtocol {
     
     func responseClass() -> BaseResponse.Type
     func requestPath() -> String
-    func dictionaryForm() -> [String: Any]
+    func dictionaryForm() -> [String: Any]?
     func requestMethodType() -> RequestMethodType
+    
 }
