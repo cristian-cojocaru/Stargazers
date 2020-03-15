@@ -45,9 +45,9 @@ class NetworkManager {
                 return
             }
             
-            let baseResponse =  request.responseClass().init(data: data)
-            baseResponse.statusCode = httpResponse.statusCode
-            withReponse(.success(baseResponse))
+            let response =  request.responseClass().init(data: data)
+            response.statusCode = httpResponse.statusCode
+            withReponse(.success(response))
             
         }
         
