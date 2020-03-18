@@ -22,5 +22,4 @@ protocol RequestProtocol {
     func requestPath() -> String
     func dictionaryForm() -> [String: Any]?
     func requestMethodType() -> RequestMethodType
-    
 }

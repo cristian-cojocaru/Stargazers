@@ -41,7 +41,7 @@ class NetworkManager {
             
             
             guard let data = data else {
-                withReponse(.failure(.invalidResponse))
+                withReponse(.failure(.decodingError))
                 return
             }
             

@@ -9,10 +9,18 @@
 import Foundation
 
 struct StargazerListViewModel {
-    private let stargazerList: [Stargazer]
+    private var stargazerList: [Stargazer]
 }
 
 extension StargazerListViewModel {
+    
+    init() {
+        self.stargazerList = [Stargazer]()
+    }
+    
+    init(_ stargazers: [Stargazer]) {
+        self.stargazerList = stargazers
+    }
     
     var numberOfSections: Int {
         return 1
@@ -27,8 +35,8 @@ extension StargazerListViewModel {
         return StargazerViewModel(stargazer)
     }
     
-    init(_ stargazers: [Stargazer]) {
-        self.stargazerList = stargazers
+    mutating func append(_ stargazers: [Stargazer]) {
+        stargazers.forEach { self.stargazerList.append($0) }
     }
     
 }

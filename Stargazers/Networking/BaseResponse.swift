@@ -14,5 +14,7 @@ class BaseResponse {
     var errorMessage: String?
 
     
-    required init(data:Data) { }
+    required init(data:Data) {
+        print("base reponse init called...")
+    }
 }

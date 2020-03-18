@@ -14,26 +14,15 @@ class StargazerTableViewCell: UITableViewCell {
     @IBOutlet weak var profileWeblinkLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     func configure(with stargazer: StargazerViewModel) {
-        usernameLabel.text = stargazer.username
-        profileWeblinkLabel.text = stargazer.profileWeblink
-        guard let url = URL(string: stargazer.avatarURL) else {
-                return
-        }
-        
-        //TODO:- downloading images only to work, will be improved in next commit
-        do {
-            let data = try Data(contentsOf: url)
-            avatarImageView.image = UIImage(data: data)
-        } catch {
-            print("cell image error")
-        }
+        stargazer.username.bindToView { self.usernameLabel.text = $0 }
+        stargazer.profileWeblink.bindToView { self.profileWeblinkLabel.text = $0 }
+        avatarImageView.loadImage(at: URL(string: stargazer.avatarURL.value)!)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarImageView.image = UIImage(named: "placeholder_image")
+        avatarImageView.cancelImageLoad()
+    }
 }

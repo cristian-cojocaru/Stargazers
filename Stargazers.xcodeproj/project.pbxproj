@@ -26,6 +26,11 @@
 		645A476C241D59CC00214589 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A476B241D59CC00214589 /* BaseResponse.swift */; };
 		645A476E241D5CEB00214589 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A476D241D5CEB00214589 /* RequestError.swift */; };
 		645A4770241D7C0200214589 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A476F241D7C0200214589 /* Dictionary.swift */; };
+		64BD5EAC2421884F0026260C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD5EAB2421884F0026260C /* ImageLoader.swift */; };
+		64BD5EAE242191BB0026260C /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD5EAD242191BB0026260C /* UIImageLoader.swift */; };
+		64BD5EB02421921F0026260C /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD5EAF2421921F0026260C /* UIImageView.swift */; };
+		64BD5EB224219D250026260C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD5EB124219D250026260C /* UIView.swift */; };
+		64C5430124221DE000E2993E /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C5430024221DE000E2993E /* DynamicType.swift */; };
 		64C96A43241D7ECF000C09A3 /* StargazersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C96A42241D7ECF000C09A3 /* StargazersRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +77,11 @@
 		645A476B241D59CC00214589 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		645A476D241D5CEB00214589 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		645A476F241D7C0200214589 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		64BD5EAB2421884F0026260C /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		64BD5EAD242191BB0026260C /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
+		64BD5EAF2421921F0026260C /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		64BD5EB124219D250026260C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		64C5430024221DE000E2993E /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
 		64C96A42241D7ECF000C09A3 /* StargazersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StargazersRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +184,8 @@
 				645A4769241D59B300214589 /* RequestProtocol.swift */,
 				645A476B241D59CC00214589 /* BaseResponse.swift */,
 				645A476D241D5CEB00214589 /* RequestError.swift */,
+				64BD5EAB2421884F0026260C /* ImageLoader.swift */,
+				64BD5EAD242191BB0026260C /* UIImageLoader.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -208,6 +220,9 @@
 			children = (
 				645A476F241D7C0200214589 /* Dictionary.swift */,
 				6454D3BF241E55E700BDECFB /* Data.swift */,
+				64BD5EAF2421921F0026260C /* UIImageView.swift */,
+				64BD5EB124219D250026260C /* UIView.swift */,
+				64C5430024221DE000E2993E /* DynamicType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -352,11 +367,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64C5430124221DE000E2993E /* DynamicType.swift in Sources */,
 				645A4768241D597C00214589 /* NetworkManager.swift in Sources */,
 				64C96A43241D7ECF000C09A3 /* StargazersRequest.swift in Sources */,
+				64BD5EAC2421884F0026260C /* ImageLoader.swift in Sources */,
 				645A4770241D7C0200214589 /* Dictionary.swift in Sources */,
 				6454D3C8241EE76F00BDECFB /* StargazerTableViewCell.swift in Sources */,
 				6454D3BE241E543600BDECFB /* Stargazer.swift in Sources */,
+				64BD5EAE242191BB0026260C /* UIImageLoader.swift in Sources */,
 				6454D3C0241E55E700BDECFB /* Data.swift in Sources */,
 				645A4738241D570300214589 /* StargazersViewController.swift in Sources */,
 				6454D3C2241ECAAE00BDECFB /* StargazerListViewModel.swift in Sources */,
@@ -365,6 +383,8 @@
 				645A4736241D570300214589 /* SceneDelegate.swift in Sources */,
 				645A476A241D59B300214589 /* RequestProtocol.swift in Sources */,
 				645A476C241D59CC00214589 /* BaseResponse.swift in Sources */,
+				64BD5EB02421921F0026260C /* UIImageView.swift in Sources */,
+				64BD5EB224219D250026260C /* UIView.swift in Sources */,
 				645A476E241D5CEB00214589 /* RequestError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

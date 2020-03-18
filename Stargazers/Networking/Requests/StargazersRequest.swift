@@ -9,13 +9,15 @@
 import Foundation
 
 class StargazerRequest: RequestProtocol {
-    
+
     var userName: String
     var repositoryName: String
+    var page: Int
     
-    init(userName: String, repositoryName: String) {
+    init(userName: String, repositoryName: String, page: Int) {
         self.userName = userName
         self.repositoryName = repositoryName
+        self.page = page
     }
     
     func responseClass() -> BaseResponse.Type {
@@ -23,7 +25,7 @@ class StargazerRequest: RequestProtocol {
     }
     
     func requestPath() -> String {
-        return "repos/\(userName)/\(repositoryName)/stargazers"
+        return "repos/\(userName)/\(repositoryName)/stargazers?page=\(page)"
     }
     
     func dictionaryForm() -> [String : Any]? {
@@ -32,6 +34,28 @@ class StargazerRequest: RequestProtocol {
     
     func requestMethodType() -> RequestMethodType {
         return RequestMethodType.GET
+    }
+    
+    func perform(completion: @escaping (StargazerResponse)->()) {
+        NetworkManager().performRequest(request: self) { (result) in
+            switch result {
+            case .failure(.domainError):
+                print("\(type(of: self)): domain error")
+            case .failure(.decodingError):
+                print("\(type(of: self)): decoding error")
+            case .failure(.invalidResponse):
+                print("\(type(of: self)): invalid error")
+            case .failure(.networkError):
+                print("\(type(of: self)): network error")
+                
+            case .success(let result) :
+                guard let result = (result as? StargazerResponse) else {
+                    return
+                }
+                
+                completion(result)
+            }
+        }
     }
 }
 
