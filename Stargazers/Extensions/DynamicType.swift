@@ -8,6 +8,7 @@
 
 import Foundation
 
+// type erasure
 class Dynamic<T>: Decodable where T: Decodable {
     typealias Listener = (T) -> ()
     var listener: Listener?

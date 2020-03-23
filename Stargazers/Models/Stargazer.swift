@@ -6,9 +6,9 @@
 //  Copyright © 2020 Cristian Cojocaru. All rights reserved.
 //
 
-import Foundation
 
 class Stargazer: Decodable {
+
     var username: String?
     var avatarURL : String?
     var profileWeblink: String?
@@ -17,6 +17,12 @@ class Stargazer: Decodable {
         case name = "login"
         case avatarURL = "avatar_url"
         case profileWeblink = "html_url"
+    }
+    
+    internal init(username: String?, avatarURL: String?, profileWeblink: String?) {
+        self.username = username
+        self.avatarURL = avatarURL
+        self.profileWeblink = profileWeblink
     }
     
     required init(from decoder: Decoder) throws {

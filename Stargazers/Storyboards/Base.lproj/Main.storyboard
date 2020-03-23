@@ -75,6 +75,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VaT-nr-3JD">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -83,6 +86,8 @@
                             <constraint firstItem="SAo-le-qad" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Ceb-wH-CE6"/>
                             <constraint firstItem="SAo-le-qad" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="LKq-Qv-lRD"/>
                             <constraint firstItem="kIM-81-me9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-9" id="MmJ-dM-f4h"/>
+                            <constraint firstItem="VaT-nr-3JD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SSP-WF-4BN"/>
+                            <constraint firstItem="VaT-nr-3JD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TY4-SJ-p7A"/>
                             <constraint firstItem="kIM-81-me9" firstAttribute="top" secondItem="SAo-le-qad" secondAttribute="bottom" constant="10" id="XY8-t9-G4o"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kIM-81-me9" secondAttribute="trailing" constant="10" id="sfj-T4-xTr"/>
                         </constraints>
@@ -90,6 +95,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Stargazers" id="BYL-PE-4WS"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="VaT-nr-3JD" id="6dv-PC-hwJ"/>
                         <outlet property="repositoryTextField" destination="47b-cq-COM" id="zjT-pJ-ftE"/>
                         <outlet property="searchView" destination="SAo-le-qad" id="dVH-UU-Jyp"/>
                         <outlet property="stargazersTableView" destination="kIM-81-me9" id="BOX-V4-BgL"/>

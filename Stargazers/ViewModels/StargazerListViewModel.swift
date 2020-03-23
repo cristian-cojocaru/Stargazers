@@ -30,7 +30,11 @@ extension StargazerListViewModel {
         return self.stargazerList.count
     }
     
-    func stargazerAtIndex(_ index: Int) -> StargazerViewModel {
+    func stargazerAtIndex(_ index: Int) -> StargazerViewModel? {
+        guard index < stargazerList.count else {
+            print("index out of bounds")
+            return nil
+        }
         let stargazer = self.stargazerList[index]
         return StargazerViewModel(stargazer)
     }

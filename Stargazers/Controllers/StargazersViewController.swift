@@ -13,7 +13,7 @@ class StargazersViewController: UIViewController {
     @IBOutlet weak var stargazersTableView: UITableView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var repositoryTextField: UITextField!
-    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var searchView: UIView!
     
     private var stargazersListVM = StargazerListViewModel()
@@ -33,15 +33,16 @@ class StargazersViewController: UIViewController {
     }
 
     @IBAction func searchStargazers(_ sender: UIButton) {
+        
         view.endEditing(true)
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.startAnimating()
         guard let username = usernameTextField.text,
             let repositoryName = repositoryTextField.text,
             !username.isEmpty,
             !repositoryName.isEmpty else {
-                
-                let alert = UIAlertController(title: "Error", message: "Please fill all fields", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                activityIndicatorView.stopAnimating()
+                Alert.showInfo(title: "Error", message: "Please fill all fields")
                 return
         }
         
@@ -60,7 +61,11 @@ class StargazersViewController: UIViewController {
                 self.stargazersTableView.beginUpdates()
                 self.stargazersTableView.insertRows(at: ((self.currentPage - 1) * 30...self.currentPage * 30 - 1).map { return IndexPath(row: $0, section: 0)}, with: .automatic)
                 self.stargazersTableView.endUpdates()
+                
                 self.isFetching = false
+                self.activityIndicatorView.isHidden = true
+                self.activityIndicatorView.stopAnimating()
+                
             }
         }
     }
@@ -77,10 +82,12 @@ extension StargazersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StargazerTableViewCell", for: indexPath) as! StargazerTableViewCell
-        let stargazer = self.stargazersListVM.stargazerAtIndex(indexPath.row)
-        cell.configure(with: stargazer)
         
-        if !isFetching, indexPath.row == self.stargazersListVM.numberOfRows(section: 1) - 5,
+        if let stargazer = self.stargazersListVM.stargazerAtIndex(indexPath.row) {
+            cell.configure(with: stargazer)
+        }
+        
+        if !isFetching, indexPath.row == self.stargazersListVM.numberOfRows(section: 1) - 10,
             let username = usernameTextField.text,
             let repositoryName = repositoryTextField.text {
             currentPage += 1

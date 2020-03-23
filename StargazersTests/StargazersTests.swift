@@ -2,33 +2,49 @@
 //  StargazersTests.swift
 //  StargazersTests
 //
-//  Created by Cristian Cojocaru on 14/03/2020.
+//  Created by Cristian Cojocaru on 23/03/2020.
 //  Copyright © 2020 Cristian Cojocaru. All rights reserved.
 //
 
 import XCTest
 @testable import Stargazers
-
+    
 class StargazersTests: XCTestCase {
-
+        
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    ///Test StargazerViewModel - NullAndEmptyValue
+    func testText_NullAndEmptyValue() {
+        let stargazer = Stargazer(username: "", avatarURL: "", profileWeblink: nil)
+        let viewModel = StargazerViewModel(stargazer)
+        XCTAssertEqual(viewModel.avatarURL.value, nil)
+        XCTAssertEqual(viewModel.profileWeblink.value, "")
+        XCTAssertEqual(viewModel.username.value, "")
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    ///Test StargazerListViewModel append function
+    func testAppending() {
+        let stargazer1 = Stargazer(username: "user_1", avatarURL: "", profileWeblink: "")
+        let stargazer2 = Stargazer(username: "user_2", avatarURL: "", profileWeblink: "")
+        
+        var viewModel = StargazerListViewModel([stargazer1, stargazer2])
+        XCTAssertTrue(viewModel.numberOfRows(section: 0) == 2)
+        
+        let stargazer3 = Stargazer(username: "user_3", avatarURL: "", profileWeblink: "")
+        let stargazer4 = Stargazer(username: "user_4", avatarURL: "", profileWeblink: "")
+        viewModel.append([stargazer3, stargazer4])
+        XCTAssertTrue(viewModel.numberOfRows(section: 0) == 4)
     }
-
+    
+    ///Test StargazerListViewModel empty list
+    func test_EmptyListOfStargazer() {
+        let viewModel = StargazerListViewModel()
+        XCTAssertTrue(viewModel.numberOfRows(section: 0) == 0)
+    }
 }

@@ -40,13 +40,13 @@ class StargazerRequest: RequestProtocol {
         NetworkManager().performRequest(request: self) { (result) in
             switch result {
             case .failure(.domainError):
-                print("\(type(of: self)): domain error")
+                Alert.showInfo(title: "Error", message: "\(type(of: self)): domain error")
             case .failure(.decodingError):
-                print("\(type(of: self)): decoding error")
+                Alert.showInfo(title: "Error", message: "\(type(of: self)): decoding error")
             case .failure(.invalidResponse):
-                print("\(type(of: self)): invalid error")
+                Alert.showInfo(title: "Error", message: "\(type(of: self)): invalid error")
             case .failure(.networkError):
-                print("\(type(of: self)): network error")
+                Alert.showInfo(title: "Error", message: "\(type(of: self)): network error")
                 
             case .success(let result) :
                 guard let result = (result as? StargazerResponse) else {
